@@ -1,0 +1,39 @@
+    1. You have a local repository, but the team members have pushed the changes into the remote repository. Which Git operation would you use to download those changes into your working copy? : 
+       if its frist time we should use Git clone <URL> or we need to use Git Pull 
+    2. Which file can you configure to ensure that certain file types are not committed to the local Git repository?  : .gitignore is the file used for this usecase.
+    3. Which environment variable do you optionally use to specify the folder in which the Jenkins configuration and runtime data are contained? : JENKINS_HOME
+    4. What is the difference between A DNS record and CNAME DNS record? : A record is ipv4 address ; CNAME is alias to A record
+    5. What is the broadcast address for the 10.0.0.0/20 network? : 10.0.127.255
+    6. What is a UTS namespace on Linux responsible for? : is used to isolate hostnames
+    7. What is the command to print content of the Linux kernel log buffer? : dmesg
+    8. What is the command to determine the free space available on a filesystem on GNU/Linux system? : df -h
+    9. What is SMTP? Give the basic scenario of how a mail message is delivered via SMTP. : its used for mail configurations andSMTP is protocol used to relay emails , and it work on port no 25
+    10. How would you enable network file sharing within AWS that would allow EC2 instances in multiple availability zones to share data? : EFS to share the files different ec2
+    11. MySQL - Explain briefly the differences between InnoDB and MyISAM.
+            MyISAM designed for need of speed vs. InnoDB designed for maximum performance              when processing high volume of data
+    12. MySQL - Write the command to provide privileges to a user. : GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost'
+    13. MySQL - Explain briefly Why should you run "mysql_secure_installation" after installing MySQL?
+           if we want to set password for root accounts, remove root accounts that are accessible from outside the local host, remove anonymous-user accounts, remove the test database
+    14. How do you stop a DDoS attack? : WAF is the solution 
+    15. A running process gets EAGAIN: Resource temporarily unavailable on reading a socket. How can you close this bad socket/file descriptor without killing the process? 
+      Get the file descriptor of the socket, debug the process and manually call close on the file descriptor.
+    16. What is a tunnel and how you can bypass a http proxy?  HTTP tunnel is used to create a direct network link between two locations to use your Internet applications safely from behind a restrictive firewall
+    17. How can you increase or decrease the priority of a process in Linux?  : renice -n <-20 to 19> -p <PID>
+
+    18. How would you approach improving the performance of a slow system? : 
+      check for disk usage , delete the files which we never use,file descriptors ,inodes used, memory , established connections to narrow down the issue,
+    19. A software development team uses git for version control and docker as a container tool for the application. Describe briefly how you would implement continuous integration in qa, staging and production for the releases.
+       QA-we have jenkins container for intergeting  the flow of the CI and CD 
+        checkout  the souce code to jenkins container volume and build the souce code using  corresponding build tool which is in jenkinscontainer  then will push to build repo( Ex:Jfrog repo) and using ansible we push to qa  env (Qa containers )
+        Staging -qa team will promate the build tp Staging env and deploying the build to   staging by ansible tool
+        Production- we got approval from release manager and promate build to prod env using kubernets         
+          We can use tag based deployment based on the dev environments.
+20.In the Bash script, write a program that calculates the total disk size and total memory that exists on the machine. The output of your program should match exactly what is below (with the dashed lines in the output):
+#!/bin/bash
+TD=`df -h .| awk -F " " '{print $2}' |tail -1`
+FREE=`(free -m | tail -2 | head -1 | awk -F " " '{print $2}')`
+echo "------"
+echo "Total Disk:${TD}"
+echo "Total Memory:${FREE}MB"
+
+
